@@ -1,0 +1,975 @@
+*{
+    margin: 0px;
+    /* font-family: Comic Sans MS, cursive; */
+}
+body{
+  box-sizing: border-box;
+  background-color: rgb(152, 193, 234);
+  line-height: 1.4;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* BODY HEADER */
+
+#body-header{
+  height: 65vh;  /* since default dimensions of the image container are 0px by 0px. */
+  width: 100vw;
+  background-image: url(./images/ultra-hd-wazf67lzyh5q7k32.jpg);
+  /* filter: blur(1px); */
+  opacity: 0.8;  /* To give blurry effect.   */
+  background-size: contain;  /* To make image cover the entire available area. */
+  background-position: center center ;
+  background-attachment: fixed;   /* Parallax Effect*/
+  box-sizing: border-box;
+}
+#body-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 65vh;
+  background: transparent; /* Optional background color */
+  background: rgba(0, 0, 0, 0.3); 
+  backdrop-filter: blur(5px); /* Adjust the blur value as needed */
+  pointer-events: none; /* Allow interactions with underlying elements */
+  z-index: -1; /* Place the overlay behind the children elements */
+}
+
+
+
+#main-body{
+    box-sizing: border-box;
+}
+
+/* HORIZONTAL LISTS */
+
+.horizontal-list{
+    list-style: none;
+    margin: 0; 
+    padding: 0%;
+}
+.horizontal-list li{
+    display: inline-block;
+    padding: 0px;
+    margin: 1rem 1.25rem 0.33rem;
+    /* font-size: large; */
+}
+.horizontal-list li a{
+    color: aliceblue;
+    text-decoration: none;
+}
+
+/*  CODE FOR HAMBURGER ICON */
+
+#nav-menu-wrap{
+  position: relative;
+}
+#nav-menu-wrap #toggler{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 2;
+  cursor: pointer;
+  width: 5rem;
+  height: 5rem;
+  opacity: 0;
+  display: none;
+}
+#nav-menu-wrap #hamburger{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  height: 3rem;
+  width: 3rem;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+#nav-menu-wrap #hamburger > div{
+  position: relative;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.4s ease;
+}
+#nav-menu-wrap #hamburger > div::before,
+#nav-menu-wrap #hamburger > div::after{
+  content: "";
+  position: absolute;
+  top: -0.625rem;
+  width: 100%;
+  height: 2px;
+  background-color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#nav-menu-wrap #hamburger > div::after{
+  top: 0.625rem;
+}
+
+/* Animation for the hamburger icon */
+
+#nav-menu-wrap #toggler:checked + #hamburger{
+  box-shadow: 4px 4px 4px #fff;
+}
+#nav-menu-wrap #toggler:checked + #hamburger>div{
+  transform: rotate(135deg);
+}
+#nav-menu-wrap #toggler:checked + #hamburger>div::before,
+#nav-menu-wrap #toggler:checked + #hamburger>div::after{
+  top: 0;
+  transform: rotate(90deg);
+}
+#nav-menu-wrap #toggler:checked:hover + #hamburger>div{
+  transform: rotate(225deg);
+}
+
+/* CODE FOR NAVIGATION MENU */
+
+#nav-menu{
+  font-size: 1.66rem;
+}
+#nav-menu ul li a{
+    transition: color 0.5s, border-bottom 1s;
+}
+#nav-menu ul li a:hover{
+    color: lightgrey;
+    border-bottom: 1px solid lightgray;
+}
+
+.text-center{
+    text-align: center;
+}
+
+/* NAME & SOCIAL ICONS */
+
+#name-social-container{
+    margin-top: 2vh;
+}
+#my-name{
+    font-size: 3rem ;
+    font-weight: 700;
+    letter-spacing: 0.1 rem;
+    margin-bottom: 0.5rem;
+    color: aliceblue;
+}
+.social-icons{
+    position: relative;
+    margin-bottom: 0.rem;
+}
+
+/* ANIMATION FOR SOCIAL ICONS */ 
+
+@keyframes blinking1 {
+    0% {
+      background-color: black;
+      border: 1px solid #666;
+    }
+    100% {
+      /* background-color: grey; */
+      border: 1px solid black;
+    }
+}
+@keyframes blinking2 {
+    0% {
+      background-color: black;
+      /* border: 3px solid #666; */
+      box-shadow: 0 0 0.4rem 0.25rem #666;  /*h offset(+ve value pushes towards right), v offset(+ve value pushes towards bottom), blur, spread, color*/
+    }
+    100% {
+      background-color: black;
+      /* border: 3px solid #666; */
+      box-shadow: 0 0 0.4rem 0.25rem #666;
+    }
+}
+.social{
+    animation: blinking1 1s infinite;
+    border-radius: 50%;
+    margin: auto;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    width: 2.5rem;
+}
+.social:hover{
+    animation: blinking2 1s infinite;
+}
+
+/* ABOUT SECTION */
+
+#about{
+    height: auto;
+    width: 100%;
+    position: relative;
+    /* text-align: center; */
+}
+#my-image{
+    /* height: 15rem; */
+    /* width: 14rem; */
+    height: 50vh;
+    width: 40vh;
+    margin: auto;
+    margin-top: -20vh;
+}
+#my-image img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    box-shadow: 0 0 0.33rem 1px gray;
+}
+
+#about-para{ 
+    width: 70%;
+    font-family: sans-serif;
+    font-size: 1.1rem;
+    padding: 0.6rem;
+    text-align: justify;
+    margin: auto;
+    margin-top: 1%;
+    letter-spacing: 0.8px;
+    line-height: 1.75rem;
+    /* color: rgb(109, 109, 109); */
+    /* background: linear-gradient(to right, black 0%, lightslategray 100%); */
+    background: linear-gradient(to right, rgb(22, 20, 20) 0%, rgb(91, 82, 82) 100%);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+}
+
+#hello{
+  width: 40%;
+  font-size: 1.5rem;
+  margin-left:14%;
+  margin-bottom: 0.6rem;
+  display: inline-block;
+  text-overflow: clip;
+  padding: 0.6rem;
+}
+#hello h3{
+  color: rgb(44, 41, 41);
+  text-align: left !important;
+
+  background-color: rgb(152, 193, 234);
+  overflow:hidden;
+  border-right: 2px solid black;
+  white-space: nowrap;
+  text-align: justify;
+  animation: 
+          typing 5s steps(40, end) infinite,
+          blink 0.7s step-end infinite;
+  
+}
+      /* The typing effect */
+      @keyframes typing {
+        0% { width: 0 }
+        50% { width: 100% }
+        100% { width: 0% }
+
+      }
+      
+      /* The typewriter cursor effect */
+      @keyframes blink {
+        from, to { border-color: transparent }
+        50% { border-color: rgb(32, 28, 28); }
+      }
+
+.text-highlight{
+    color: #2857a4;
+    /* font: bold; */
+    font-weight:500;
+}
+
+
+/* BOTTOM SECTIONS */ 
+
+h1{
+    font-size: xx-large;
+    font-weight: 700;
+}
+                                                       
+section{
+    width: 100vw;
+    /* height: 75vh; */    
+    height: auto;
+    padding: 2.5rem;
+    display: flex;
+    flex-direction: column;  
+    align-items: center;
+    box-sizing: border-box;
+}
+main > :nth-child(even){
+    background-color: rgb(187, 197, 197);
+}
+/* main :nth-child(odd){
+    background-color: rgb(240, 240, 240);
+} */
+.section-heading{
+    margin-top: 2rem;
+    padding: 1.25rem 0.6rem 1.25rem 0.6rem;
+    /* margin: 10px auto; */
+    width: auto;
+}
+.section-heading span{
+    /* color: #2857a4; */
+    color: #4c0fae;
+    display: inline-block;
+    padding-top: 0.6rem;
+    margin-right: 0.5rem;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* SKILL SECTION */
+
+.skills-display{
+    width: 90%;
+    /* height: 70vh; */
+    /* border: 2px solid #2857a4; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    /* align-items: stretch; */
+}
+
+.skill-progress{
+    height: 3rem;
+    width: 15rem;
+    /* margin: auto; */
+    margin: 1rem;
+    border-radius: 1.2rem;
+    background-color: lightgray;
+    /* box-shadow: #666; */
+    box-shadow: 0.36rem 0.36rem 0.33rem rgba(0, 0, 0, 0.1);
+}
+
+.skill-progress > div{     
+
+    /* It ensures that only the direct children of "skill-progress" will be affected and not the grand-children */
+
+    border-radius: 1.2rem 0rem 0rem 1.2rem;
+    display:flex;
+    align-items: center;
+}
+
+.skill-name span{
+    color: aliceblue;
+    font-size: 1.3rem;
+    margin-left: 0.6rem;
+}
+
+
+/*  COMMON MARGIN CLASSES */
+
+.mb75px{
+    margin-bottom: 4.7rem;
+}
+
+/*  COMMON COLOR CLASSES */
+
+/* .mb-blue{
+    margin-bottom: #2857a4;
+} */
+
+/*  PERCENTAGE CLASSES */
+
+.sixty-five-per{
+    height: inherit;
+    height: 20px;
+    width: 65%;
+    background-color:orange;
+}
+.sixty-eight-per{
+    height: inherit;
+    width: 68%;
+    background-color: lightseagreen;
+}
+.seventy-per{
+    height: inherit;
+    width: 70%;
+    background-color: rgb(51, 100, 198);
+}
+.seventy-two-per{
+    height: inherit;
+    width: 72%;
+    background-color: rgb(44, 206, 152);
+}
+.seventy-four-per{
+    height: inherit;
+    width: 74%;
+    background-color: brown;
+}
+.seventy-five-per{
+    height: inherit;
+    width: 75%;
+    background-color: lightgreen;
+}
+.seventy-six-per{
+    height: inherit;
+    width: 76%;
+    background-color: darkolivegreen;
+}
+.seventy-eight-per{
+    height: inherit;
+    width: 78%;
+    background-color: indigo;
+}
+.eighty-per{
+    height: inherit;
+    width: 80%;
+    background-color: lightcoral;
+}
+.eighty-two-per{
+    height: inherit;
+    width: 82%;
+    background-color: blue;
+}
+.eighty-five-per{
+    height: inherit;
+    width: 85%;
+    background-color: red;
+}
+.ninety-per{
+    height: inherit;
+    width: 90%;
+    background-color:orange;
+}
+
+
+/* PORTFOLIO SECTION */ 
+
+.portfolio-display{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width: 90%;
+    height: auto;
+    margin:auto;
+    /* border: 2px solid black; */
+}
+.project{
+    background-image: url("https://ninjasfiles.s3.amazonaws.com/asset_0000000000000024_1550237299_codezen.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 13.5rem;
+    width: 24rem;
+    /* border: 1px solid #666; */
+    border-radius: 0rem 0rem 3rem 3rem;
+    margin: 0.6rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.project:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+    box-shadow: 0.36rem 0.36rem 0.33rem rgba(0, 0, 0, 0.1);
+
+  }
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(50, 50, 50, 0.6);
+    color: aliceblue;
+    opacity: 0;
+    transition: opacity 0.5s  , transform 0.5s;
+    transform: translateY(-100%);
+    padding: 1.25rem;
+  }
+  
+  .overlay h2 {
+    margin-top: 0;
+    text-align: center;
+    letter-spacing: 2px;
+
+  }
+  
+  .overlay p {
+    margin-bottom: 0;
+    text-align: center;
+    font-size: large;
+    letter-spacing: 1px;
+  }
+
+  .project-info{
+    margin-top: 2rem;
+  }
+
+  .project-link{
+    margin-top: 1rem;
+  }
+  .project-link a{
+    color: #fff;
+  }
+  .project-link a:hover{
+    color: yellow;
+  }
+
+  /* The .overlay class represents the overlay element that appears on top of the image when the user hovers over the portfolio item. The overlay element is initially hidden (opacity: 0) and positioned at the top of the container (transform: translateY(-100%)). When the user hovers over the portfolio item("project"), the opacity and transform properties are transitioned to create the hover effect (opacity: 1; transform: translateY(0)). */
+
+
+  /* EXPERIENCE & EDUCATION SECTION */ 
+
+  .timeline{
+    position: relative;
+    /* border: 5px solid black; */
+    width: 80%;
+    height: auto;
+
+  }
+  .timeline-box{
+    position: relative;
+    /* border: 2px solid blue; */
+    width: 40%;
+    height: 25vh;
+    left: 5%;
+    margin: 5% 0;
+  }
+  .timeline-box:nth-child(even){
+    left: 55%; 
+  }
+  .timeline-box:nth-child(odd)::after{
+    content: "";
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    background-color: lightgray;
+    position: absolute;
+    top: 10%;
+    right: -14.5%;
+    z-index: 1;
+  }
+  .timeline-box:nth-child(even)::before{
+    content: "";
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    background-color: lightgray;
+    position: absolute;
+    top: 10%;
+    left: -14.3%;
+    z-index: 1;
+  }
+
+  .timeline-divider{
+    position: absolute;
+    height: 65%;
+    width: 0;
+    border: 2px dashed #0096fa6b;
+    top: 10%;
+    left: 50%;
+  }
+  
+  .timeline-divider .timeline-traveler{
+    position: sticky;
+    top: 40%;
+    transform:rotate(90deg);
+    z-index: 2;
+  }
+  .timeline-divider .timeline-traveler i{
+    color:#2857a4;
+    font-size: 3rem;
+  }
+
+  .designation, .degree-name{
+    font-size: 1.5rem;
+    color: #2857a4;
+    font-weight:bold;
+    margin-bottom: 0.7rem;
+  }
+  .organization, .institute{
+    font-size: 1.2rem;
+    color: black;
+    font-weight: lighter;
+  }
+  .timeline-box > .year, .board, .time-period{
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 1rem;
+  }
+  .timeline-box > .year, .time-period{
+    margin-bottom: 0.7rem;
+  }
+  .designation, .degree-name, .organization, .institute, .year, .time-period, .board{
+    text-align: right;
+  }
+
+
+  /* CONTACT SECTION */ 
+  
+  #contact{
+    padding: 0;
+    min-height: 100vh;
+    height: auto;
+    width: 100vw;
+    background: linear-gradient(to right, #3976f8,#6d33f4);
+    opacity: 0.9;
+  }
+  #contact-overlay{
+    box-sizing: border-box;
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.55);
+    color: aliceblue;
+  }
+  #contact-heading{
+    height: auto;
+    width: auto;
+    margin-top: 3rem;
+    padding: 1.25rem 0.62rem 1.25rem 0.62rem;
+  }
+
+  #contact-heading span{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: aliceblue;
+    display: inline-block;
+    margin-right: 1rem;
+  }
+
+  #contact-card{
+    display: flex;
+  }
+  #contact-form{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 50%;
+    height: auto;
+    color: aliceblue;
+    padding: 2rem;
+  }
+  #contact-form ul{
+    padding: 0;
+  }
+  #contact-form ul li{
+    list-style: none;
+    text-align:center;
+  }
+  #contact-form ul li input, textarea{
+    width: 80%;
+    margin-bottom: 2rem;
+    background-color:transparent;
+    font-size: large;
+    font-family: sans-serif;
+    color: aliceblue;
+    border: none;
+    border-bottom: 2px solid aliceblue;
+  }
+  .height2rem{
+    height: 2rem;
+  }
+  .height5rem{
+    height: 5rem;
+  }
+  #form-btn{
+    height: 3rem;
+    color: aliceblue;
+    background-color:transparent;
+    font-size: large;
+    font-family: sans-serif;
+    border: 2px solid aliceblue;
+    border-radius: 0.33rem;
+    margin: 0.33rem;
+    box-shadow: 0.33rem 0.33rem 1rem #888888;
+  }
+  #form-btn:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 2px solid black;
+    /* box-shadow: 5px 5px 15px #3e3e3e; */
+  }
+
+
+  #contact-details{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 45%;
+    height: auto;
+    padding: 2rem;
+  }
+  #contact-details h2{
+    color: aliceblue;
+    font-weight:lighter;
+    font-family: sans-serif;
+  }
+  #contact-details p{
+    word-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
+    font-size: 1.2rem;
+    line-height: 2rem;
+  }
+  #contact-details p, #my-address{
+    color: lightgray;
+    font-family: sans-serif;
+  }
+  #my-address li{
+    list-style: none;
+    line-height: 2.5rem;
+    word-spacing: 0.2rem;
+    letter-spacing: 0.1rem;
+    font-size: 1.2rem;
+  }
+  .contact-social{
+    animation: blinking1 1s infinite;
+    border-radius: 50%;
+    margin: auto;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    width: 2.5rem;
+  }
+  .contact-social:hover{
+    animation: blinking2 1s infinite;
+  }
+
+
+
+    /*  MEDIA QUERIES  */ 
+
+
+  @media only screen and (max-width: 950px) {
+    html{
+      font-size: 1.25rem;
+    }
+    #body-header{
+      height: 40vh;  
+    } 
+    #body-header::before{
+      height: 40vh;  
+    } 
+    #nav-menu{
+      font-size: 1.25rem;
+    }
+    .horizontal-list li{
+      margin: 1rem 0.4rem 0.33rem;
+    }
+    #name-social-container{
+      margin-top: 5vh;
+    }
+    #my-name{
+      font-size: 3rem;
+      margin-bottom: 2rem;
+    }
+    .social-icons .social{
+      height: 3rem;
+      width: 3rem;
+      line-height: 3rem;
+    }
+    .social-icons .social a i{
+    margin-top: 1.5rem;
+    font-size: 1.4rem;
+    }
+    #my-image{
+      height: 20vh;
+      width: 18vh;
+      margin: auto;
+      margin-top: -10vh;
+    }
+    #hello{
+      width: 50%;
+    }
+    .project{
+      height: 16.2rem;
+      width: 28.8rem;
+      background-size: cover;
+      margin-bottom: 4rem;
+
+      /* height: 13.5rem;
+      width: 24rem; */
+    }
+    .timeline-divider{
+      height: 64%;
+      top: 7%;
+      left: 5%;
+    } 
+    .timeline-box{
+      left: 12% !important; /* assigns higher priority to it over any other conflicting CSS rule*/
+      width: 80%;
+    }
+    .timeline-box:nth-child(odd)::after{
+      left: -10%;
+    }
+    .timeline-box:nth-child(even)::before{
+      left: -10%;
+    }
+    #contact-card{
+      flex-direction: column;
+    }
+    #contact-form{
+      width: 100%;
+      min-height: 40vh;
+      margin-bottom: 5rem;
+      padding: 2rem;
+    }
+    #contact-form ul li input, textarea{
+      margin-bottom: 3rem;
+    }
+    #contact-details{
+      width: 100%;
+      min-height: 40vh;
+    }
+    .contact-social{
+      height: 3rem;
+      width: 3rem;
+      line-height: 3rem;
+    }
+    .contact-social a i{
+      margin-top: 1.5rem;
+      font-size: 1.4rem;
+    }
+  }
+
+@media only screen and (max-width: 572px) {
+  html{
+    font-size: 0.5rem;
+  }
+  #body-header{
+    height: 30vh;
+  }
+  #body-header::before {
+    height: 30vh;
+  }
+  #nav-menu-wrap #toggler{
+    display: inline;
+  }
+  #nav-menu-wrap #hamburger{
+    display: flex;
+  }
+  #nav-menu{
+    font-size: 1.66rem;
+    display: none;
+  }
+  #nav-menu ul li a{
+      transition: color 0.5s, border-bottom 1s;
+  }
+  #nav-menu ul li a:hover{
+      color: lightgrey;
+      border-bottom: 1px solid lightgray;
+  }
+  .social:active, .social:focus{
+    animation: blinking2 1s infinite;
+  }
+  #name-social-container{
+    margin-top: 0;
+    height: 22vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  #my-name{
+    font-size: 3rem;
+    margin-bottom: 0.2rem;
+  }
+  .social-icons .social{
+      height: 3rem;
+      width: 3rem;
+      line-height: 3rem;
+  }
+  .social-icons .social a i{
+    margin-top: 1.6rem;
+    font-size: 1.5rem;
+  }
+  #my-image{
+    height: 15rem;
+    width: 13.5rem;
+    margin: auto;
+    margin-top: -7.5rem;
+  }
+  #hello{
+  width: 50%;
+  }
+  #about-para p{
+    font-size: 1.6rem;
+    line-height: 3rem;
+    font-weight:500;
+  }
+  .timeline-divider{
+    height: 69%;
+    top: 2%;
+    left: 5%;
+  } 
+  .timeline-divider .timeline-traveler{
+    top: 30%;
+  }
+  .timeline-divider .timeline-traveler i{
+    font-size: 4rem;
+  }
+  .timeline-box{
+    left: 12% !important; /* assigns higher priority to it over any other conflicting CSS rule*/
+    width: 80%;
+  }
+  .timeline-box:nth-child(odd)::after{
+    left: -10%;
+  }
+  .timeline-box:nth-child(even)::before{
+    left: -10%;
+  }
+  .designation, .degree-name{
+    font-size: 2rem;
+  }
+  .organization, .institute{
+    font-size: 1.4rem;
+  }
+  .timeline-box > .year, .board, .time-period{
+    font-size: 1.4rem;
+  }
+  #contact-card{
+    flex-direction: column;
+  }
+  #contact-form{
+    width: 100%;
+    min-height: 40%;
+    margin-bottom: 7rem;
+    padding: 2rem;
+  }
+  #contact-form ul li input, textarea{
+    margin-bottom: 6rem;
+  }
+  #form-btn{
+    font-size: 2rem;
+    height: 5rem;
+    width: 20rem;
+  }
+  #contact-details{
+    min-height: 40%;
+    width: 100%; 
+  }
+  #contact-details h2{
+    font-size: 2.5rem;
+    letter-spacing: 1rem;
+    word-spacing: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  #contact-details p,  #my-address li{
+    word-spacing: 0.45rem;
+    letter-spacing: 0.3rem;
+    font-size: 1.6rem;
+    line-height: 3rem;
+  }
+  .contact-social{
+    height: 4rem;
+    width: 4rem;
+    line-height: 4rem;
+  }
+  .contact-social a i{
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+}
+
+
+  
